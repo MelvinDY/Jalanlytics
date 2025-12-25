@@ -4,6 +4,8 @@ Configuration management for Jalanlytics.
 Handles all configurable parameters for the analysis pipeline.
 """
 
+from __future__ import annotations
+
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Literal

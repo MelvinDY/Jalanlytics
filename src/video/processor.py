@@ -5,6 +5,8 @@ Handles video file loading, frame extraction, and sampling strategies
 for efficient processing of CCTV footage.
 """
 
+from __future__ import annotations
+
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterator, Optional

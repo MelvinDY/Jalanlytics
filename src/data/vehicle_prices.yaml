@@ -391,7 +391,7 @@ cars:
       category: suv
 
   # Wuling (Chinese)
-    wuling:
+  wuling:
     air_ev:
       price: 145000000
       tier: budget

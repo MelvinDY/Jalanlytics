@@ -4,6 +4,8 @@ Jalanlytics CLI - Street Income Intelligence Tool
 Analyze CCTV footage to estimate income levels by detecting and classifying vehicles.
 """
 
+from __future__ import annotations
+
 from pathlib import Path
 from typing import Optional
 

@@ -5,6 +5,8 @@ Detects ride-hailing motorcycles (ojol), public transport (angkot),
 and other commercial vehicles specific to Indonesian streets.
 """
 
+from __future__ import annotations
+
 from dataclasses import dataclass
 from enum import Enum, auto
 from typing import Optional

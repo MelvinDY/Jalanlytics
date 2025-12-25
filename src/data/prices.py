@@ -5,6 +5,8 @@ Provides price lookups and tier classification for vehicles
 based on make and model identification.
 """
 
+from __future__ import annotations
+
 from dataclasses import dataclass
 from enum import Enum, auto
 from pathlib import Path

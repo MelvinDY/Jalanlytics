@@ -5,6 +5,8 @@ Generates formatted reports with vehicle statistics, income tier analysis,
 and area assessment recommendations.
 """
 
+from __future__ import annotations
+
 import json
 import csv
 import io

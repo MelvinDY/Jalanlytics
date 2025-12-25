@@ -5,6 +5,8 @@ Detects vehicles (motorcycles, cars, bicycles, buses, trucks) in video frames
 using the YOLOv8 object detection model.
 """
 
+from __future__ import annotations
+
 from dataclasses import dataclass
 from enum import IntEnum
 from pathlib import Path

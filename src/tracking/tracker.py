@@ -5,6 +5,8 @@ Tracks unique vehicles across video frames to prevent double-counting
 and enable vehicle-level analysis.
 """
 
+from __future__ import annotations
+
 from dataclasses import dataclass, field
 from typing import Optional
 

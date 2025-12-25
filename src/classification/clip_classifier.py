@@ -5,6 +5,8 @@ Uses OpenAI's CLIP model to classify vehicle makes and models
 without requiring task-specific training data.
 """
 
+from __future__ import annotations
+
 import time
 from typing import Optional
 
