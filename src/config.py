@@ -28,19 +28,20 @@ class VideoConfig:
 class DetectionConfig:
     """Configuration for vehicle detection."""
 
-    model_name: str = "yolov8n.pt"  # YOLOv8 model variant (n/s/m/l/x)
-    confidence_threshold: float = 0.25  # Minimum detection confidence
-    iou_threshold: float = 0.45  # NMS IoU threshold
+    model_name: str = "yolov8s.pt"  # YOLOv8 model variant (n/s/m/l/x) - 's' better for small objects
+    confidence_threshold: float = 0.05  # Minimum detection confidence (low for motorcycles from CCTV)
+    iou_threshold: float = 0.2  # NMS IoU threshold (low for motorcycle clusters)
+    imgsz: int = 1280  # Input image size (larger = better small object detection)
     # COCO class IDs for vehicles
     vehicle_classes: list[int] = field(default_factory=lambda: [1, 2, 3, 5, 7])
-    # 1=bicycle, 2=car, 3=motorcycle, 5=bus, 7=truck
+    # 1=bicycle, 2=car, 3=motorcycle, 5=bus, 7=truck (trucks merged to cars in detector)
 
 
 @dataclass
 class TrackingConfig:
     """Configuration for vehicle tracking."""
 
-    track_thresh: float = 0.25  # Detection threshold for tracking
+    track_thresh: float = 0.05  # Detection threshold for tracking (must match detection confidence)
     track_buffer: int = 30  # Frames to keep lost tracks
     match_thresh: float = 0.8  # Threshold for matching detections to tracks
     frame_rate: int = 30  # Expected video frame rate

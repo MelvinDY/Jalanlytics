@@ -183,8 +183,7 @@ class ReportGenerator:
             console.print(f"Bicycles: {result.bicycle_count}")
         if result.bus_count > 0:
             console.print(f"Buses/Angkot: {result.bus_count}")
-        if result.truck_count > 0:
-            console.print(f"Trucks: {result.truck_count}")
+        # Note: Trucks are merged into cars (SUVs often misclassified as trucks)
         console.print(f"[bold]Total:[/bold] {result.total_vehicles}")
         console.print()
 
@@ -289,7 +288,7 @@ class ReportGenerator:
                 "cars_commercial": result.car_stats.commercial_count,
                 "bicycles": result.bicycle_count,
                 "buses": result.bus_count,
-                "trucks": result.truck_count,
+                # trucks merged into cars
             },
             "motorcycle_analysis": {
                 "tier_distribution": result.motorcycle_stats.tier_counts,
@@ -355,7 +354,7 @@ class ReportGenerator:
         ])
         writer.writerow(["Bicycles", result.bicycle_count, 0])
         writer.writerow(["Buses", result.bus_count, result.bus_count])
-        writer.writerow(["Trucks", result.truck_count, result.truck_count])
+        # Trucks merged into cars (SUVs often misclassified)
         writer.writerow([])
 
         # Motorcycle models

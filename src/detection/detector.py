@@ -29,8 +29,16 @@ class VehicleClass(IntEnum):
     TRUCK = 7
 
     @classmethod
-    def from_coco_id(cls, coco_id: int) -> Optional["VehicleClass"]:
-        """Convert COCO class ID to VehicleClass."""
+    def from_coco_id(cls, coco_id: int, merge_truck_to_car: bool = True) -> Optional["VehicleClass"]:
+        """Convert COCO class ID to VehicleClass.
+
+        Args:
+            coco_id: COCO class ID
+            merge_truck_to_car: If True, treat trucks as cars (SUVs often misclassified as trucks)
+        """
+        # Merge truck into car - SUVs are often misclassified as trucks
+        if merge_truck_to_car and coco_id == 7:  # truck -> car
+            coco_id = 2
         try:
             return cls(coco_id)
         except ValueError:
@@ -201,6 +209,7 @@ class VehicleDetector:
         self,
         frame: np.ndarray,
         frame_number: int = 0,
+        imgsz: int | None = None,
     ) -> DetectionResult:
         """
         Detect vehicles in a single frame.
@@ -208,6 +217,7 @@ class VehicleDetector:
         Args:
             frame: BGR image as numpy array.
             frame_number: Frame number for tracking.
+            imgsz: Input image size for inference. If None, uses config.imgsz (default: 1280).
 
         Returns:
             DetectionResult containing all vehicle detections.
@@ -220,6 +230,10 @@ class VehicleDetector:
 
         import time
 
+        # Use config imgsz if not specified
+        if imgsz is None:
+            imgsz = getattr(self.config, 'imgsz', 1280)
+
         start_time = time.perf_counter()
 
         # Run inference
@@ -228,6 +242,7 @@ class VehicleDetector:
             conf=self.config.confidence_threshold,
             iou=self.config.iou_threshold,
             classes=list(self._vehicle_class_ids),
+            imgsz=imgsz,
             verbose=False,
         )
 

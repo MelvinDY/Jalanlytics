@@ -54,6 +54,9 @@ class AnalysisPipeline:
         self.config = config or Config()
         self.verbose = verbose
 
+        # Sync tracking threshold with detection confidence
+        self.config.tracking.track_thresh = self.config.detection.confidence_threshold
+
         # Initialize components
         self.video_processor = VideoProcessor(self.config.video)
         self.detector = VehicleDetector(self.config.detection, self.config.torch_device)
@@ -195,7 +198,6 @@ class AnalysisPipeline:
         car_stats = VehicleStats()
         bicycle_count = 0
         bus_count = 0
-        truck_count = 0
 
         for vehicle in self.tracker.get_all_tracked_vehicles().values():
             # Get classification if available
@@ -213,12 +215,13 @@ class AnalysisPipeline:
                 motorcycle_stats.add_vehicle(price_info, vehicle.is_commercial)
             elif vehicle.vehicle_class == VehicleClass.CAR:
                 car_stats.add_vehicle(price_info, vehicle.is_commercial)
+            elif vehicle.vehicle_class == VehicleClass.TRUCK:
+                # Merge trucks into cars (SUVs often misclassified as trucks)
+                car_stats.add_vehicle(price_info, vehicle.is_commercial)
             elif vehicle.vehicle_class == VehicleClass.BICYCLE:
                 bicycle_count += 1
             elif vehicle.vehicle_class == VehicleClass.BUS:
                 bus_count += 1
-            elif vehicle.vehicle_class == VehicleClass.TRUCK:
-                truck_count += 1
 
         return AnalysisResult(
             video_path=video_path,
@@ -229,7 +232,7 @@ class AnalysisPipeline:
             car_stats=car_stats,
             bicycle_count=bicycle_count,
             bus_count=bus_count,
-            truck_count=truck_count,
+            truck_count=0,  # Trucks merged into cars
         )
 
     def generate_report(self, result: AnalysisResult) -> str:
