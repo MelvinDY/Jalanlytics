@@ -1,0 +1,621 @@
+# Indonesian Vehicle Price Database
+# All prices in IDR (Indonesian Rupiah)
+# Data as of 2024, approximate OTR (On The Road) prices
+
+# Price Tiers (Cars):
+#   Budget: < 150 juta (< ~$10,000)
+#   Economy: 150 - 300 juta (~$10,000 - $20,000)
+#   Mid-range: 300 - 500 juta (~$20,000 - $33,000)
+#   Premium: 500 - 800 juta (~$33,000 - $53,000)
+#   Luxury: > 800 juta (> ~$53,000)
+
+# Price Tiers (Motorcycles):
+#   Budget: < 18 juta
+#   Mid: 18 - 35 juta
+#   Premium: > 35 juta
+
+tiers:
+  car:
+    budget:
+      min: 0
+      max: 150000000
+      label: "Budget"
+    economy:
+      min: 150000000
+      max: 300000000
+      label: "Economy"
+    mid_range:
+      min: 300000000
+      max: 500000000
+      label: "Mid-range"
+    premium:
+      min: 500000000
+      max: 800000000
+      label: "Premium"
+    luxury:
+      min: 800000000
+      max: 999999999999
+      label: "Luxury"
+
+  motorcycle:
+    budget:
+      min: 0
+      max: 18000000
+      label: "Budget"
+    mid:
+      min: 18000000
+      max: 35000000
+      label: "Mid"
+    premium:
+      min: 35000000
+      max: 999999999999
+      label: "Premium"
+
+motorcycles:
+  # Honda - Market leader (~75% market share)
+  honda:
+    beat:
+      price: 17500000
+      tier: budget
+      category: scooter
+    vario_125:
+      price: 23000000
+      tier: mid
+      category: scooter
+    vario_160:
+      price: 27500000
+      tier: mid
+      category: scooter
+    pcx_160:
+      price: 33000000
+      tier: mid
+      category: scooter
+    adv_160:
+      price: 38000000
+      tier: premium
+      category: scooter
+    scoopy:
+      price: 21500000
+      tier: mid
+      category: scooter
+    genio:
+      price: 19000000
+      tier: mid
+      category: scooter
+    revo:
+      price: 15500000
+      tier: budget
+      category: moped
+    cbr_150r:
+      price: 38500000
+      tier: premium
+      category: sport
+    cbr_250rr:
+      price: 65000000
+      tier: premium
+      category: sport
+    cb_150r:
+      price: 32000000
+      tier: mid
+      category: naked
+    crf_150l:
+      price: 35500000
+      tier: premium
+      category: trail
+    st125_dax:
+      price: 65000000
+      tier: premium
+      category: retro
+
+  # Yamaha (~20% market share)
+  yamaha:
+    nmax_155:
+      price: 32000000
+      tier: mid
+      category: scooter
+    aerox_155:
+      price: 28500000
+      tier: mid
+      category: scooter
+    mio_m3:
+      price: 16500000
+      tier: budget
+      category: scooter
+    lexi:
+      price: 24000000
+      tier: mid
+      category: scooter
+    fazzio:
+      price: 22500000
+      tier: mid
+      category: scooter
+    filano:
+      price: 24000000
+      tier: mid
+      category: scooter
+    r15_v4:
+      price: 40000000
+      tier: premium
+      category: sport
+    mt15:
+      price: 36000000
+      tier: premium
+      category: naked
+    xsr155:
+      price: 38000000
+      tier: premium
+      category: retro
+    wr155:
+      price: 39500000
+      tier: premium
+      category: trail
+
+  # Suzuki
+  suzuki:
+    nex_ii:
+      price: 16000000
+      tier: budget
+      category: scooter
+    address:
+      price: 16500000
+      tier: budget
+      category: scooter
+    satria_f150:
+      price: 27000000
+      tier: mid
+      category: moped
+    gsx_r150:
+      price: 32500000
+      tier: mid
+      category: sport
+    gsx_s150:
+      price: 30000000
+      tier: mid
+      category: naked
+
+  # Kawasaki
+  kawasaki:
+    ninja_250:
+      price: 63000000
+      tier: premium
+      category: sport
+    ninja_zx25r:
+      price: 115000000
+      tier: premium
+      category: sport
+    klx_150:
+      price: 35000000
+      tier: mid
+      category: trail
+    w175:
+      price: 37000000
+      tier: premium
+      category: retro
+    z250:
+      price: 58000000
+      tier: premium
+      category: naked
+
+  # Vespa
+  vespa:
+    sprint:
+      price: 50000000
+      tier: premium
+      category: scooter
+    primavera:
+      price: 48000000
+      tier: premium
+      category: scooter
+    lx:
+      price: 40000000
+      tier: premium
+      category: scooter
+
+  # Electric
+  electric:
+    gesits:
+      price: 28000000
+      tier: mid
+      category: electric
+    viar_q1:
+      price: 18000000
+      tier: mid
+      category: electric
+    volta_401:
+      price: 12000000
+      tier: budget
+      category: electric
+
+cars:
+  # Toyota - Market leader
+  toyota:
+    calya:
+      price: 165000000
+      tier: economy
+      category: mpv
+    avanza:
+      price: 235000000
+      tier: economy
+      category: mpv
+    veloz:
+      price: 295000000
+      tier: economy
+      category: mpv
+    raize:
+      price: 235000000
+      tier: economy
+      category: suv
+    rush:
+      price: 290000000
+      tier: economy
+      category: suv
+    innova_zenix:
+      price: 425000000
+      tier: mid_range
+      category: mpv
+    fortuner:
+      price: 560000000
+      tier: premium
+      category: suv
+    kijang_innova:
+      price: 395000000
+      tier: mid_range
+      category: mpv
+    yaris:
+      price: 295000000
+      tier: economy
+      category: hatchback
+    vios:
+      price: 340000000
+      tier: mid_range
+      category: sedan
+    camry:
+      price: 750000000
+      tier: premium
+      category: sedan
+    alphard:
+      price: 1100000000
+      tier: luxury
+      category: mpv
+    land_cruiser:
+      price: 1800000000
+      tier: luxury
+      category: suv
+    hilux:
+      price: 460000000
+      tier: mid_range
+      category: pickup
+
+  # Honda
+  honda:
+    brio:
+      price: 165000000
+      tier: economy
+      category: hatchback
+    hrv:
+      price: 385000000
+      tier: mid_range
+      category: suv
+    crv:
+      price: 580000000
+      tier: premium
+      category: suv
+    brv:
+      price: 280000000
+      tier: economy
+      category: suv
+    city_hatchback:
+      price: 355000000
+      tier: mid_range
+      category: hatchback
+    civic:
+      price: 585000000
+      tier: premium
+      category: sedan
+    accord:
+      price: 750000000
+      tier: premium
+      category: sedan
+
+  # Mitsubishi
+  mitsubishi:
+    xpander:
+      price: 280000000
+      tier: economy
+      category: mpv
+    xpander_cross:
+      price: 330000000
+      tier: mid_range
+      category: mpv
+    pajero_sport:
+      price: 580000000
+      tier: premium
+      category: suv
+    triton:
+      price: 460000000
+      tier: mid_range
+      category: pickup
+    outlander:
+      price: 600000000
+      tier: premium
+      category: suv
+    xforce:
+      price: 295000000
+      tier: economy
+      category: suv
+
+  # Daihatsu
+  daihatsu:
+    ayla:
+      price: 135000000
+      tier: budget
+      category: hatchback
+    sigra:
+      price: 165000000
+      tier: economy
+      category: mpv
+    xenia:
+      price: 220000000
+      tier: economy
+      category: mpv
+    terios:
+      price: 245000000
+      tier: economy
+      category: suv
+    rocky:
+      price: 225000000
+      tier: economy
+      category: suv
+
+  # Suzuki
+  suzuki:
+    ertiga:
+      price: 245000000
+      tier: economy
+      category: mpv
+    xl7:
+      price: 285000000
+      tier: economy
+      category: suv
+    baleno:
+      price: 235000000
+      tier: economy
+      category: hatchback
+    ignis:
+      price: 195000000
+      tier: economy
+      category: hatchback
+    jimny:
+      price: 450000000
+      tier: mid_range
+      category: suv
+
+  # Wuling (Chinese)
+    wuling:
+    air_ev:
+      price: 145000000
+      tier: budget
+      category: electric
+    confero:
+      price: 175000000
+      tier: economy
+      category: mpv
+    almaz:
+      price: 340000000
+      tier: mid_range
+      category: suv
+    cortez:
+      price: 295000000
+      tier: economy
+      category: mpv
+
+  # Hyundai
+  hyundai:
+    creta:
+      price: 320000000
+      tier: mid_range
+      category: suv
+    stargazer:
+      price: 280000000
+      tier: economy
+      category: mpv
+    ioniq_5:
+      price: 750000000
+      tier: premium
+      category: electric
+    palisade:
+      price: 850000000
+      tier: luxury
+      category: suv
+    santa_fe:
+      price: 680000000
+      tier: premium
+      category: suv
+
+  # Kia
+  kia:
+    sonet:
+      price: 245000000
+      tier: economy
+      category: suv
+    seltos:
+      price: 340000000
+      tier: mid_range
+      category: suv
+    carens:
+      price: 390000000
+      tier: mid_range
+      category: mpv
+    ev6:
+      price: 1100000000
+      tier: luxury
+      category: electric
+
+  # DFSK (Chinese)
+  dfsk:
+    glory_i_auto:
+      price: 185000000
+      tier: economy
+      category: mpv
+    glory_560:
+      price: 225000000
+      tier: economy
+      category: suv
+    gelora:
+      price: 165000000
+      tier: economy
+      category: mpv
+
+  # Chery (Chinese)
+  chery:
+    omoda_5:
+      price: 340000000
+      tier: mid_range
+      category: suv
+    tiggo_7_pro:
+      price: 420000000
+      tier: mid_range
+      category: suv
+    tiggo_8_pro:
+      price: 550000000
+      tier: premium
+      category: suv
+
+  # BYD (Chinese EV)
+  byd:
+    atto_3:
+      price: 550000000
+      tier: premium
+      category: electric
+    seal:
+      price: 850000000
+      tier: luxury
+      category: electric
+    dolphin:
+      price: 380000000
+      tier: mid_range
+      category: electric
+
+  # MG (Chinese)
+  mg:
+    zs:
+      price: 295000000
+      tier: economy
+      category: suv
+    hs:
+      price: 420000000
+      tier: mid_range
+      category: suv
+    zs_ev:
+      price: 580000000
+      tier: premium
+      category: electric
+
+  # Nissan
+  nissan:
+    livina:
+      price: 260000000
+      tier: economy
+      category: mpv
+    kicks:
+      price: 395000000
+      tier: mid_range
+      category: suv
+    terra:
+      price: 570000000
+      tier: premium
+      category: suv
+
+  # Mazda
+  mazda:
+    cx5:
+      price: 580000000
+      tier: premium
+      category: suv
+    mazda2:
+      price: 320000000
+      tier: mid_range
+      category: hatchback
+    mazda3:
+      price: 550000000
+      tier: premium
+      category: sedan
+    cx3:
+      price: 380000000
+      tier: mid_range
+      category: suv
+    cx9:
+      price: 880000000
+      tier: luxury
+      category: suv
+
+  # Premium brands
+  bmw:
+    x1:
+      price: 850000000
+      tier: luxury
+      category: suv
+    x3:
+      price: 1100000000
+      tier: luxury
+      category: suv
+    x5:
+      price: 1800000000
+      tier: luxury
+      category: suv
+    series_3:
+      price: 950000000
+      tier: luxury
+      category: sedan
+    series_5:
+      price: 1300000000
+      tier: luxury
+      category: sedan
+
+  mercedes:
+    a_class:
+      price: 750000000
+      tier: premium
+      category: hatchback
+    c_class:
+      price: 1000000000
+      tier: luxury
+      category: sedan
+    e_class:
+      price: 1400000000
+      tier: luxury
+      category: sedan
+    glc:
+      price: 1100000000
+      tier: luxury
+      category: suv
+    gle:
+      price: 1600000000
+      tier: luxury
+      category: suv
+
+  lexus:
+    nx:
+      price: 950000000
+      tier: luxury
+      category: suv
+    rx:
+      price: 1400000000
+      tier: luxury
+      category: suv
+    es:
+      price: 1100000000
+      tier: luxury
+      category: sedan
+    lx:
+      price: 3500000000
+      tier: luxury
+      category: suv
+
+# Default prices for unknown vehicles (median values)
+defaults:
+  motorcycle: 22000000  # Mid-range scooter
+  car: 280000000        # Economy MPV
+  bicycle: 0            # No income indicator
+  bus: 0                # Commercial vehicle
+  truck: 0              # Commercial vehicle
