@@ -1,0 +1,84 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jalanlytics"
+version = "0.1.0"
+description = "Street Income Intelligence - Analyze CCTV footage to estimate area income levels by detecting and classifying vehicles"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Jalanlytics Team"}
+]
+keywords = ["computer-vision", "vehicle-detection", "income-analysis", "indonesia", "yolo", "clip"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+]
+
+dependencies = [
+    "ultralytics>=8.0.0",
+    "opencv-python>=4.8.0",
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "supervision>=0.17.0",
+    "transformers>=4.30.0",
+    "Pillow>=10.0.0",
+    "click>=8.0.0",
+    "rich>=13.0.0",
+    "pyyaml>=6.0",
+    "numpy>=1.24.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+
+[project.scripts]
+jalanlytics = "src.main:cli"
+
+[project.urls]
+Homepage = "https://github.com/jalanlytics/jalanlytics"
+Documentation = "https://github.com/jalanlytics/jalanlytics#readme"
+Repository = "https://github.com/jalanlytics/jalanlytics"
+Issues = "https://github.com/jalanlytics/jalanlytics/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
