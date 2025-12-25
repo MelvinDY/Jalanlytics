@@ -1,0 +1,25 @@
+# Core ML dependencies
+ultralytics>=8.0.0          # YOLOv8 for vehicle detection
+torch>=2.0.0                # PyTorch backend
+torchvision>=0.15.0         # Image transformations
+transformers>=4.30.0        # CLIP model for classification
+
+# Computer Vision
+opencv-python>=4.8.0        # Video processing
+supervision>=0.17.0         # ByteTrack tracking + visualization
+Pillow>=10.0.0              # Image handling
+
+# CLI and Output
+click>=8.0.0                # CLI framework
+rich>=13.0.0                # Beautiful terminal output
+
+# Data handling
+pyyaml>=6.0                 # Configuration files
+numpy>=1.24.0               # Numerical operations
+
+# Development dependencies (optional)
+# pytest>=7.0.0
+# pytest-cov>=4.0.0
+# black>=23.0.0
+# ruff>=0.1.0
+# mypy>=1.0.0
